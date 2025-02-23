@@ -1,0 +1,13 @@
+<div id="product-list"></div>
+
+<script>
+    fetch('http://localhost:3001/products')
+        .then(response => response.json())
+        .then(products => {
+            products.forEach(product => {
+                let productDiv = document.createElement('div');
+                productDiv.innerHTML = `Name: ${product.name}, Price: ${product.price}`;
+                document.getElementById('product-list').appendChild(productDiv);
+            });
+        });
+</script>
